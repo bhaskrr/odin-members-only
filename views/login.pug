@@ -1,0 +1,18 @@
+extends layout 
+block content
+    section.container
+        h2 Log in
+        form(action='/auth/login', method='post')
+            if error
+                p(style="color:red") #{error}
+            label(for="username") Username:
+            input(type="text" name='username'  id='username' required)
+            br
+            label(for="password") Password:
+            input(type="password" name="password" id='password' required)
+            br
+            button(type="submit") Log in
+        br
+        p Do&apos;t have an account?
+            a(href="/auth/signup") Register here
+    

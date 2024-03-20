@@ -1,0 +1,14 @@
+extends layout 
+block content 
+    header
+        p Hello member!
+        a(href="/homepage/create") Create a message 
+        span An admin?
+            a(href="/users/admin/new") Click Here
+    if messages
+        section.messages-container
+            each message in messages 
+                section.message
+                    h2 #{message.title} - from #{message.author}
+                    h4 #{message.text}
+                    p #{message.time_formatted}

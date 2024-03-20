@@ -1,0 +1,15 @@
+extends layout 
+block content 
+    header
+        a(href="/homepage/create") Create a message
+    br
+    if message 
+        p #{message}
+        br
+    if messages 
+        section.message-container 
+            each message in messages
+                section.message 
+                    h2  #{message.title} - from #{message.author}
+                    h4 #{message.text}
+                    h6 #{message.time_formatted}

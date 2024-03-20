@@ -1,0 +1,13 @@
+extends layout 
+block content
+    if message 
+        p #{message}
+    form.form-container(action="/homepage/create" method="post")
+        h2= title
+        label(for='title') Title: 
+        input(type="text", name="title" id="title" minLength="2" maxLength="20" required)
+        br
+        label(for="text") Text:
+        input(type="text", name="text" id="text" minLength="5" maxLength="100" required)
+        br
+        button(type="submit") Submit

@@ -1,0 +1,55 @@
+extends layout
+block content
+    section.container
+        h1= title
+        form(action="/auth/signup", method="POST")
+            label(for="username") Username:
+            
+            if errors
+                input(id="username" type="text" name="username" minLength="1" value=(errors.usernameErr && errors.usernameErr[0] ? errors.usernameErr[0].value : ''), required)
+                p(style="color: red;margin: 0") #{errors.usernameErr && errors.usernameErr[0] ? errors.usernameErr[0].msg : ""}
+            else
+                input#username(type="text" name="username" minLength="1" required)
+            br
+
+            label(for="firstname") Firstname:
+
+            if errors
+                input(id= "firstname" type="text" name="firstname" minLength="1" value= (errors.firstnameErr && errors.firstnameErr[0] ? errors.firstnameErr[0].value : '') required)
+                p(style="color: red;margin: 0") #{errors.firstnameErr && errors.firstnameErr[0] ? errors.firstnameErr[0].msg : ""}
+            else 
+                input#firstname(type="text" name="firstname" minLength="1" required)
+            br
+
+            label(for="lastname") Lastname:
+
+            if errors
+                input(id= "lastname" type="text" name="lastname" minLength="1" value= (errors.lastnameErr && errors.lastnameErr[0] ? errors.lastnameErr[0].value : '') required)
+                p(style="color: red;margin: 0") #{errors.lastnameErr && errors.lastnameErr[0] ? errors.lastnameErr[0].msg : ""}
+            else 
+                input#lastname(type="text" name="lastname" minLength="1" required)
+            br
+
+            label(for="password") Password:
+
+            if errors
+                input(id= "password" type="password" name="password" minLength="1" value= (errors.passwordErr && errors.passwordErr[0] ? errors.passwordErr[0].value : '') required)
+                p(style="color: red;margin: 0") #{errors.passwordErr && errors.passwordErr[0] ? errors.passwordErr[0].msg : ""}
+            else 
+                input#password(type="password" name="password" minLength="1" required)
+            br
+
+            label(for="password_confirmation") Confirm password:
+
+            if errors
+                input(id= "password_confirmation" type="password" name="passwordConfirmation" minLength="1" value= (errors.confirmationErr && errors.confirmationErr[0] ? errors.confirmationErr[0].value : '') required)
+                p(style="color: red;margin: 0") #{errors.confirmationErr && errors.confirmationErr[0] ? errors.confirmationErr[0].msg : ""}
+
+            else 
+                input#password_confirmation(type="password" name="passwordConfirmation" minLength="1" required)
+            br
+
+            button(type="submit") Submit
+            br
+            p Already have an account? 
+                a(href="/auth/login") Login

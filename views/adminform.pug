@@ -1,0 +1,9 @@
+extends layout 
+block content
+    
+    form.form-container(method="post" action="/users/admin/new")
+        label(for="admin_code") Enter admin code:
+        input(type="password" id="admin_code" name="admincode" minLength="4" required)
+        if message 
+            p(style="color:red") #{message}
+        button(type="submit") Submit

@@ -1,0 +1,8 @@
+extends layout 
+block content
+    if message 
+        p #{message}
+    form.form-container(method="post" action="/users/member/new")
+        label(for="member_code") Enter member code:
+        input(type="password" id="member_code" name="membercode" minLength="4" required)
+        button(type="submit") Submit
